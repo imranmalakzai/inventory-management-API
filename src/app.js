@@ -33,7 +33,9 @@ app.use("/api/", userRouter);
 app.use("/api/auth", authRouter);
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
+app.get("/", (req, res) => {
+  res.send("Welcome to Inventory Management System API");
+});
 app.use(errorHandlerMiddleWare);
 
 export default app;
