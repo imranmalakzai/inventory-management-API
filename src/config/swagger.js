@@ -1,4 +1,5 @@
 import swaggerJSDoc from "swagger-jsdoc";
+import { HOSTED_URI } from "../config/env.js";
 
 const options = {
   definition: {
@@ -10,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000/api",
+        url: `${HOSTED_URI}/api`,
       },
     ],
     components: {
