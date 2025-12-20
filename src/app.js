@@ -35,7 +35,12 @@ app.use("/api/auth", authRouter);
 app.use(
   "/api/docs",
   swaggerUi.serveFiles(swaggerSpec),
-  swaggerUi.setup(swaggerSpec)
+  swaggerUi.setup(swaggerSpec, {
+    explorer: true,
+    swaggerOptions: {
+      url: "/api/swagger.json",
+    },
+  })
 );
 
 app.get("/", (req, res) => {

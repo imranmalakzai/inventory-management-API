@@ -1,4 +1,10 @@
 import swaggerJSDoc from "swagger-jsdoc";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Fix for ES Modules + Vercel
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const options = {
   definition: {
@@ -28,8 +34,9 @@ const options = {
       },
     ],
   },
-  apis: ["./**/*.route.js"],
-  // Swagger reads comments here
+
+  // ✅ ABSOLUTE PATH (THIS FIXES VERCEL)
+  apis: [path.join(__dirname, "../routes/*.route.js")],
 };
 
 export const swaggerSpec = swaggerJSDoc(options);
