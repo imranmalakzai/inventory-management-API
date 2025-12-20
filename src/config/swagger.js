@@ -1,12 +1,6 @@
 import swaggerJSDoc from "swagger-jsdoc";
-import path from "path";
-import { fileURLToPath } from "url";
 
-// Fix for ES Modules + Vercel
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const options = {
+export const swaggerSpec = swaggerJSDoc({
   definition: {
     openapi: "3.0.0",
     info: {
@@ -16,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: "localhost:5000/api",
+        url: "http://localhost:5000/api",
       },
     ],
     components: {
@@ -28,15 +22,7 @@ const options = {
         },
       },
     },
-    security: [
-      {
-        bearerAuth: [],
-      },
-    ],
+    security: [{ bearerAuth: [] }],
   },
-
-  // ✅ ABSOLUTE PATH (THIS FIXES VERCEL)
-  apis: [path.join(__dirname, "../routes/*.route.js")],
-};
-
-export const swaggerSpec = swaggerJSDoc(options);
+  apis: ["./src/routes/*.js"], // where comments are
+});

@@ -38,7 +38,6 @@ app.get("/api/swagger.json", (req, res) => {
 });
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 app.get("/", (req, res) => {
   res.send("Welcome to Inventory Management System API");
 });
