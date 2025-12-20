@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: `${HOSTED_URI}/api`,
+        url: `${HOSTED_URI}api`,
       },
     ],
     components: {
