@@ -32,6 +32,11 @@ app.use("/api/", saleItemRouter);
 app.use("/api/", userRouter);
 app.use("/api/auth", authRouter);
 
+// Swagger JSON (needed for Vercel)
+app.get("/api/swagger.json", (req, res) => {
+  res.json(swaggerSpec);
+});
+
 app.use(
   "/api/docs",
   swaggerUi.serveFiles(swaggerSpec),
