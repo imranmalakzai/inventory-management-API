@@ -1,5 +1,4 @@
 import swaggerJSDoc from "swagger-jsdoc";
-import { HOSTED_URI } from "../config/env.js";
 
 const options = {
   definition: {
@@ -11,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: `${HOSTED_URI}api`,
+        url: "https://inve-api.vercel.app/api",
       },
     ],
     components: {
@@ -23,13 +22,11 @@ const options = {
         },
       },
     },
-    security: [
-      {
-        bearerAuth: [],
-      },
-    ],
+    security: [{ bearerAuth: [] }],
   },
-  apis: ["./src/routes/*.js"], // Swagger reads comments here
+
+  // ✅ FIXED
+  apis: ["../routes/*.js"],
 };
 
 export const swaggerSpec = swaggerJSDoc(options);
