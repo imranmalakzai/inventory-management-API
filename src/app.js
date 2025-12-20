@@ -37,14 +37,17 @@ app.get("/api/swagger.json", (req, res) => {
   res.json(swaggerSpec);
 });
 
+// Swagger UI
 app.use(
   "/api/docs",
-  swaggerUi.serveFiles(swaggerSpec),
+  swaggerUi.serve,
   swaggerUi.setup(swaggerSpec, {
-    explorer: true,
-    swaggerOptions: {
-      url: "/api/swagger.json",
-    },
+    customCssUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.css",
+    customJs:
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-bundle.js",
+    customJsStr:
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-standalone-preset.js",
   })
 );
 
