@@ -66,7 +66,7 @@ This will create all required tables (users, products, stock, sales, sale_items)
 Default admin credentials:
 
 Email: admin@gmail.com
-Password: admin
+Password: admin@123
 
 
 ✅ Use this account to create other users and start managing inventory.
