@@ -22,11 +22,14 @@ const options = {
         },
       },
     },
-    security: [{ bearerAuth: [] }],
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-
-  // ✅ FIXED
-  apis: ["../routes/*.js"],
+  apis: ["./**/*.route.js"],
+  // Swagger reads comments here
 };
 
 export const swaggerSpec = swaggerJSDoc(options);
